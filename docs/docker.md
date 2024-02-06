@@ -9,6 +9,7 @@ docker pull registry.gitlab.com/timvisee/send:latest
 docker run -v $PWD/uploads:/uploads -p 1443:1443 \
     -e 'DETECT_BASE_URL=true' \
     -e 'REDIS_HOST=localhost' \
+    -e 'FILE_DIR=/uploads' \
     registry.gitlab.com/timvisee/send:latest
 ```
 
@@ -33,7 +34,7 @@ Config options expecting array values (e.g. `EXPIRE_TIMES_SECONDS`, `DOWNLOAD_CO
 | `PORT`           | Port the server will listen on (defaults to `1443`)
 | `NODE_ENV`       | Run in `development` mode (unsafe) or `production` mode (the default)
 | `SEND_FOOTER_DMCA_URL` | A URL to a contact page for DMCA requests (empty / not shown by default)
-| `SENTRY_CLIENT`, `SENTRY_DSN`  | Sentry Client ID and DNS for error tracking (optional, disabled by default)
+| `SENTRY_CLIENT`, `SENTRY_DSN`  | Sentry Client ID and DSN for error tracking (optional, disabled by default)
 
 *Note: more options can be found here: https://github.com/timvisee/send/blob/master/server/config.js*
 
